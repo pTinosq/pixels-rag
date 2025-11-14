@@ -65,7 +65,7 @@ async def on_message(message):
                 data = response.text
                 logger.info(f"Successfully got response (length: {len(data)})")
                 if await confirm_send(data):
-                    await message.channel.send(data)
+                    await message.channel.send(data[:1900])
                     logger.info("Message sent to Discord")
                 else:
                     logger.info("Message sending cancelled by user")
